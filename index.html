@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bead Wink</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+    }
+    header {
+      background-color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      background-color: #ffe4e1;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-img {
+      max-width: 90%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product-title {
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #a0522d;
+      margin-bottom: 0.5rem;
+    }
+    .add-to-cart {
+      padding: 0.5rem 1rem;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #ffe4e1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="C:\Users\mohan\Downloads\1000211943.jpg" alt="Bead Wink Logo" />
+  </header>
+  <nav>
+    <a href="C:\Users\mohan\Downloads\product.html">Products</a>
+    <a href="C:\Users\mohan\Downloads\cart.html"">Cart</a>
+  </nav>
+
+  <section id="crochet">
+    <div class="section-title">Crochet Cuteness</div>
+    <p>Adorable handmade crochet items to warm your heart and home.</p>
+    <img src="C:\Users\mohan\Downloads\OIP.jpeg" alt="Crochet Sample" class="section-img" />
+  </section>
+
+  <section id="bead">
+    <div class="section-title">Bead Swirl</div>
+    <p>Unique beadwork designs that reflect elegance and style.</p>
+    <img src="C:\Users\mohan\Downloads\il_1140xN.1019898537_pw31.webp" alt="Beads Sample" class="section-img" />
+  </section>
+
+  <section id="charm">
+    <div class="section-title">Charm Pieces</div>
+    <p>Charming accessories that add sparkle to your personality.</p>
+    <img src="C:\Users\mohan\Downloads\OIP (1).jpeg" alt="Charm Sample" class="section-img" />
+  </section>
+
+  <footer>
+    <p>Contact us: <a href="mailto:beadwink@gmail.com">beadwink@gmail.com</a> | Phone: (TBD)</p>
+    <p>&copy; 2025 Bead Wink. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.textContent = `${item.product} - ₹${item.price}`;
+        cartItems.appendChild(li);
+      });
+      cartTotal.textContent = total;
+    }
+  </script>
+</body>
+</html>
